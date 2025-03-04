@@ -6,13 +6,22 @@ import { BrowserRouter, Routes, Route } from "react-router";
 import Footer from "./components/footer/Footer";
 import Home from "./components/home/Home"
 import Navbar from './components/navbar/Navbar';
+import Interests from './components/Interests/Interests';
+import WishList from './components/WishList/WishList';
+import Contact from './components/ContactUs/Contact';
+import About from './components/About/About';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 
   <BrowserRouter>
     <Navbar/>
     <Routes>
-      <Route path="/" element={<App />} />
+      <Route exact path="/" element={<Home />} />
+      <Route exact path="/wishlist" element={<WishList />} />
+      <Route exact path="/interests" element={<Interests/>}/>
+      <Route exact path="/contact" element={<Contact/>}/>
+      <Route exact path="/about" element={<About/>}/>
     </Routes>
     <Footer/>
   </BrowserRouter>

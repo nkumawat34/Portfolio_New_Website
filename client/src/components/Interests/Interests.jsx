@@ -32,15 +32,15 @@ export default function Interests() {
         <div className='mt-5'>
     
       <div className='flex flex-col justify-center items-center'>
-      <h1 className='text-4xl font-mono mt-5 text-center font-bold'>Songs</h1>
-            <ul className='text-2xl'>{songList}</ul>
+      <h1 className='text-3xl font-mono mt-5 text-center font-bold'>Songs</h1>
+            <ul className='text-1xl'>{songList}</ul>
       </div>
       </div>
       <div className=' mt-5'>
       
       <div className='flex flex-col justify-center items-center'>
-      <h1 className='text-4xl font-mono mt-5 text-center font-bold'>Things which I love to do</h1>
-            <ul className='text-2xl'>{interestlist}</ul>
+      <h1 className='text-3xl font-mono mt-5 text-center font-bold'>Things which I love to do</h1>
+            <ul className='text-1xl'>{interestlist}</ul>
       </div>
       </div>
     </div>

@@ -10,6 +10,8 @@ import Interests from './components/Interests/Interests';
 import WishList from './components/WishList/WishList';
 import Contact from './components/ContactUs/Contact';
 import About from './components/About/About';
+import Book from './components/Books/Book';
+import Projects from './components/Projects/Projects';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -22,6 +24,8 @@ root.render(
       <Route exact path="/interests" element={<Interests/>}/>
       <Route exact path="/contact" element={<Contact/>}/>
       <Route exact path="/about" element={<About/>}/>
+      <Route exact path="/books" element={<Book/>}/>
+      <Route exact path="/projects" element={<Projects/>}/>
     </Routes>
     <Footer/>
   </BrowserRouter>

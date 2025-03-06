@@ -1,9 +1,19 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "./Home.css"
 import Typewriter from 'typewriter-effect';
 import Image from "../../images/Neeraj_Kumawat_Passport_Size_Photo.jpg"
+import Loader from '../Loaders/Loader';
 export default function Home() {
+
+  const [loading,setLoading]=useState(true)
+
+  useEffect(()=>{
+
+    setLoading(false);
+  })
   return (
+
+    !loading?
     <div>
       <h1 className='text-center font-mono text-3xl mt-5'> 
       <Typewriter
@@ -24,6 +34,6 @@ export default function Home() {
 </div>
 
     </div>
-    </div>
+    </div>:<Loader/>
   )
 }

@@ -7,8 +7,16 @@ import Youtube from "../../Projects_Images/Youtube.jpg"
 import ApnaSamaan from "../../Projects_Images/ecart.png"
 import MovieSearchEngine from "../../Projects_Images/Movie_Search_Engine.png"
 import CryptoTracker from "../../Projects_Images/CryptoCurrency.png"
+import Loader from '../Loaders/Loader'
+import { useState,useEffect } from 'react'
 export default function Projects() {
 
+  const [loading,setLoading]=useState(true)
+    
+      useEffect(()=>{
+    
+        setLoading(false);
+      })
 
     const projects=[
         {
@@ -71,6 +79,7 @@ export default function Projects() {
      
 
   return (
+    !loading?
     <div>
       <h1 className='text-4xl text-center font-bold mt-[30px]'>My Recent Works</h1>
       <div className="flex flex-wrap justify-center gap-6 p-5">
@@ -79,6 +88,6 @@ export default function Projects() {
       ))}
     </div>
 
-    </div>
+    </div>:<Loader/>
   )
 }

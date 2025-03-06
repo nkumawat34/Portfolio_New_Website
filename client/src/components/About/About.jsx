@@ -9,8 +9,19 @@ import { FaNodeJs } from "react-icons/fa";
 import { SiExpress } from "react-icons/si";
 import { DiMongodb } from "react-icons/di";
 import { FaAws } from "react-icons/fa";
+import Loader from '../Loaders/Loader';
+import { useState,useEffect } from 'react';
 export default function About() {
+
+  const [loading,setLoading]=useState(true)
+  
+    useEffect(()=>{
+  
+      setLoading(false);
+    })
+
   return (
+    !loading?
     <div>
       <h1 className='text-center font-bold text-3xl mt-5'>Who I'M</h1>
       <div className="flex justify-center flex-col items-center mt-5 shadow-xl p-8 w-128 mx-auto">
@@ -34,6 +45,6 @@ export default function About() {
             </ul>
         </div>
         </div>
-    </div>
+    </div>:<Loader/>
   )
 }

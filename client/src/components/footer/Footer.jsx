@@ -1,6 +1,5 @@
 import React from 'react';
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
-
 export default function Footer() {
   return (
     <div className="bg-black text-white py-6 mt-16">

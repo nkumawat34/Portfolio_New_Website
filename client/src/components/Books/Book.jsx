@@ -1,6 +1,15 @@
 import React from 'react'
-
+import { useState,useEffect } from 'react';
+import Loader from '../Loaders/Loader';
 export default function Book() {
+
+  const [loading,setLoading]=useState(true)
+  
+    useEffect(()=>{
+  
+      setLoading(false);
+    })
+
 
     const books=[
         {
@@ -59,6 +68,7 @@ export default function Book() {
         <li key={index} className='m-4'>{item.name}-  <a href={item.url} className='text-blue-800'>{item.url}</a></li>
       ));
   return (
+    !loading?
     <div>
         <div className='flex flex-col justify-center items-center'>
       <h1 className='text-3xl text-center mt-5'>Books I Have Read So Far</h1>
@@ -72,6 +82,6 @@ export default function Book() {
         {bloglist}
       </ul>
       </div>
-    </div>
+    </div>:<Loader/>
   )
 }

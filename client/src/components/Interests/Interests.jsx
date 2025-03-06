@@ -1,6 +1,15 @@
 import React from 'react'
-
+import { useState,useEffect } from 'react';
+import Loader from '../Loaders/Loader';
 export default function Interests() {
+
+  
+    const [loading,setLoading]=useState(true)
+  
+    useEffect(()=>{
+  
+      setLoading(false);
+    })
 
     const songs=[
         "Admirin You - Karan Aujla",
@@ -28,6 +37,8 @@ export default function Interests() {
         <li key={index} className='m-4'>{item}</li>
       ));
   return (
+
+    !loading?
     <div className='font-sans h-[100%]'>
         <div className='mt-5'>
     
@@ -43,6 +54,6 @@ export default function Interests() {
             <ul className='text-1xl'>{interestlist}</ul>
       </div>
       </div>
-    </div>
+    </div>:<Loader/>
   )
 }

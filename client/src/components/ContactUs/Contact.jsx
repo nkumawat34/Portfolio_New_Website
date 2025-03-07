@@ -91,7 +91,6 @@ export default function Contact() {
       <button className="text-xl mt-5 text-white bg-black px-6 py-2 rounded-lg hover:bg-gray-800 transition" onClick={onSubmit} disabled={loading}>
       {loading ? <Loader /> : "Submit"}
       </button>
-     {  process.env.REACT_APP_SERVER_URL}
     </div>
   );
 }

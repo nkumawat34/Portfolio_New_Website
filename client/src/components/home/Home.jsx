@@ -3,6 +3,7 @@ import "./Home.css"
 import Typewriter from 'typewriter-effect';
 import Image from "../../images/Neeraj_Kumawat_Passport_Size_Photo.jpg"
 import Loader from '../Loaders/Loader';
+import { FaFilePdf } from "react-icons/fa";
 export default function Home() {
 
   const [loading,setLoading]=useState(true)
@@ -34,6 +35,9 @@ export default function Home() {
 </div>
 
     </div>
+    <div className='flex justify-center mx-auto p-3 flex-row hover:bg-red-300 mt-5 w-fit rounded-xl transition-all duration-300'>
+    <FaFilePdf size={30} className=''/>
+    <a href='https://drive.google.com/file/d/1kWR5Yi7KtTMTcLpaEzvlrDMNlghNMh0P/view?usp=sharing' className='mx-3'>Download Resume</a></div>
     </div>:<Loader/>
   )
 }

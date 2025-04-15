@@ -8,7 +8,7 @@ const blogs = [
       content: `
         <p>If you're getting started with Git, here are some of the most commonly used commands that will help you track changes, manage branches, and collaborate efficiently.</p></br>
         <ol class="list-decimal ml-5">
-          <li><strong>git status</strong><br> Checks the status of files in your working directory and staging area.<br> Ex: <code>git status</code></li></br>
+          <li><strong>git status</strong><br> Checks the status of files in the current directory, indicating whether they are untracked, staged, or committed.<br> Ex: <code>git status</code></li></br>
           <li><strong>git add</strong><br> Adds files to the staging area.<br> Ex: <code>git add file_name</code><br> <code>git add .</code> (adds all untracked files)</li></br>
           <li><strong>git commit</strong><br> Commits files that are in the staging area.<br> Ex: <code>git commit -m "message"</code></li></br>
           <li><strong>git push</strong><br> Pushes committed changes to the remote repository.<br> Ex: <code>git push origin branch_name</code></li></br>
@@ -46,7 +46,7 @@ const blogs = [
             
             <li><strong>Docker</strong><br> A platform for developing, shipping, and running applications inside containers. It helps with maintaining consistency between environments.</li></br>
             
-            <li><strong>MongoDB</strong><br> A NoSQL database, typically used in the MERN stack for storing data in a flexible JSON format.</li></br>
+            <li><strong>MongoDB Compass</strong><br> A NoSQL database, typically used in the MERN stack for storing data in a flexible JSON format.</li></br>
           </ol>
         `,
       },

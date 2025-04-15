@@ -39,7 +39,17 @@ export default function Book() {
         {
           "title": "The Secret",
           "author": "Rhonda Byrne"
-        }
+        },
+        {
+          "title": "Love yourself like your life depends on it",
+          "author": "Kamal Ravikant"
+        },
+        {
+          "title": "Don't Believe Everything You think",
+          "author": "Joseph Nguyen"
+
+        },
+      
       ]
       const bookslist=books.map((item, index) => (
         <li key={index} className='m-4'>{item.title}-{item.author}</li>

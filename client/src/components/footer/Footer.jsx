@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="flex flex-col items-center justify-center">
         <h1 className="text-lg font-semibold">Developed by Neeraj Kumawat</h1>
 
-        {/* Social Icons */}
+        
         <div className="flex gap-6 mt-2">
           <a href="https://github.com/NeerajKumawat34" target="_blank" rel="noopener noreferrer">
             <FaGithub size={24} className="hover:text-gray-400 transition duration-300" />
@@ -19,7 +19,7 @@ export default function Footer() {
           </a>
         </div>
 
-        {/* Copyright Text */}
+        
         <p className="text-sm text-gray-400 mt-2">&copy; {new Date().getFullYear()} All rights reserved.</p>
       </div>
     </div>

@@ -12,7 +12,8 @@ import Contact from './components/ContactUs/Contact';
 import About from './components/About/About';
 import Book from './components/Books/Book';
 import Projects from './components/Projects/Projects';
-
+import Blogs from './components/Blogs/Blog'
+import BlogPage from './components/BlogPage/BlogPage';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 
@@ -26,6 +27,8 @@ root.render(
       <Route exact path="/about" element={<About/>}/>
       <Route exact path="/books" element={<Book/>}/>
       <Route exact path="/projects" element={<Projects/>}/>
+      <Route exact path='/blogs' element={<Blogs/>}/>
+      <Route exact path='/blogpage/:id' element={<BlogPage/>}/>
     </Routes>
     <Footer/>
   </BrowserRouter>

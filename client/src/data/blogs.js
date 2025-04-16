@@ -50,6 +50,46 @@ const blogs = [
           </ol>
         `,
       },
+      {
+        id: 3,
+        title: 'My Life',
+        summary: 'A personal reflection on life, routines, and lessons learned.',
+        author: 'Neeraj Kumawat',
+        date: 'April 16, 2025',
+        content: `
+          <p>This blog reflects my personal experiences — what I’ve done, what I’ve learned, and how I live my life.</p>
+          <p>Life is all about the decisions you make — whether right or wrong, they shape your future.</p>
+    </br>
+          <h3><b>Q. How did I start my life?</b></h3>
+          <ul class="list-disc ml-5">
+            <li>I wake up and freshen up, just like anyone else.</li>
+            <li>I look outside my room and observe life around me.</li>
+            <li>I begin my day with 30 minutes of exercise.</li>
+            <li>Then I do 15 minutes of meditation, just observing my thoughts.</li>
+            <li>Both give me a fresh and clear start to the day.</li>
+            <li>I listen to music from my Spotify playlist.</li>
+            <li>I have breakfast and prepare for office.</li>
+            <li>After returning from office (around 6:00 PM), I read a book I enjoy.</li>
+            <li>I eat dinner around 8:30 PM.</li>
+            <li>I work on my personal projects — something I truly love.</li>
+            <li>Finally, I go to sleep.</li>
+          </ul>
+        </br>
+          <p>This might sound like an ideal routine — and maybe it is. But I follow it as consistently as I can. You should create your own routine that fits you best.</p>
+        </br>
+          <h3><b>Some Thoughts from My Experience:</b></h3>
+          
+          <ul class="list-disc ml-5">
+            <li>Don’t rely too much on others for decisions — be wise and independent.</li>
+            <li>Pick a career you love — not one society chooses for you.</li>
+            <li>Jobs can be lost at any time — always be prepared.</li>
+            <li>Take care of your parents — they’ve sacrificed a lot for you.</li>
+            <li>Make friends who will stand by you in hard times.</li>
+            <li>Learn investing — I’m learning too, sometimes investing in equity.</li>
+            <li>Mutual funds are a great starting point for beginners.</li>
+          </ul>
+        `
+      }
   ];
   
   export default blogs;

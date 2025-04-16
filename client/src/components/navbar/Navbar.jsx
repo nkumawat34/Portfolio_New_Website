@@ -9,7 +9,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-white shadow-md">
+    <nav className="bg-white shadow-md w-full">
       <div className="flex justify-between items-center px-5 py-4 md:px-10">
         
         <div className="flex items-center">

@@ -27,7 +27,7 @@ export default function WishList() {
     !loading?<div className='font-sans'>
       
       <div className='flex flex-col justify-center items-center'>
-        <h1 className='text-3xl mt-5 font-bold'>Things which I want to do before die</h1>
+        <h1 className='text-3xl mt-5 font-bold text-center'>Things which I want to do before die</h1>
         <ul className='mt-5 text-1xl'>{wishlist}</ul>
       </div>
     </div>:<Loader/>

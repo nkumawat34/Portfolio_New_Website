@@ -24,7 +24,7 @@ export default function About() {
     !loading?
     <div>
       <h1 className='text-center font-bold text-3xl mt-5'>Who I'M</h1>
-      <div className="flex justify-center flex-col items-center mt-5 shadow-xl p-8 w-128 mx-auto">
+      <div className="flex justify-center flex-col items-center mt-5 shadow-xl p-8 max-w-xl mx-auto">
         <div>Hi Everyone, I am Neeraj Kumawat from <strong>Jaipur</strong>, Rajasthan, India. </div>
         <div className='mt-3'>I am a computer science post graduate from <strong>National Insitute of Technology ,Karnataka</strong> and a passionate programmer.</div>
         <div className='mt-3'> I am working in <strong>Tata Consultancy Service</strong> as a System Engineer.</div></div>

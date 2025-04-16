@@ -29,8 +29,8 @@ export default function About() {
         <div className='mt-3'>I am a computer science post graduate from <strong>National Insitute of Technology ,Karnataka</strong> and a passionate programmer.</div>
         <div className='mt-3'> I am working in <strong>Tata Consultancy Service</strong> as a System Engineer.</div></div>
         <h1 className='text-center font-bold text-3xl mt-[50px]'> Skills</h1>
-        <div className="flex  justify-center mt-5 shadow-xl p-8 w-128 mx-auto">
-        <div>
+        <div className="flex   justify-center mt-5 shadow-xl p-8 max-w-xl mx-auto  ">
+     
             <ul>
                 <li className='flex'><FaHtml5  size={50}/> HTML</li>
                 <li className='flex'><FaCss3Alt size={50}/>CSS</li>
@@ -43,7 +43,7 @@ export default function About() {
                 <li  className='flex'><DiMongodb size={50}/>MongoDB</li>
                 <li  className='flex'><FaAws size={50}/> AWS</li>
             </ul>
-        </div>
+   
         </div>
     </div>:<Loader/>
   )

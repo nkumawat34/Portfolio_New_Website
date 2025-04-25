@@ -3,10 +3,25 @@ import { useParams, Link } from 'react-router-dom';
 import blogs from '../../data/blogs';
 import remarkGfm from 'remark-gfm'; 
 import ReactMarkdown from 'react-markdown';
+import axios from 'axios';
+import { useEffect } from 'react';
+
 export default function BlogPage() {
   const { id } = useParams();
   const blog = blogs.find((b) => b.id === parseInt(id));
 
+  useEffect(() => {
+    if (blog) {
+      // API call to increment views
+      axios.put(process.env.REACT_APP_SERVER_URL+`/api/views/${blog.id}`)
+        .then((response) => {
+          console.log("View count incremented:", response.data);
+        })
+        .catch((error) => {
+          console.error("Error incrementing view count:", error);
+        });
+    }
+  }, [blog]); 
   if (!blog) {
     return (
       <div className="max-w-3xl mx-auto py-10 px-4 text-center">
@@ -16,6 +31,7 @@ export default function BlogPage() {
     );
   }
 
+  
   return (
     <div className="max-w-3xl mx-auto px-4 py-8">
     

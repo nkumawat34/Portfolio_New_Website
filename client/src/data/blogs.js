@@ -150,5 +150,4 @@ const blogs = [
       
   ];
   
-  export default blogs;
-  
+module.exports = blogs;

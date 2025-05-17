@@ -3,45 +3,55 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 export default function Blog() {
-  const [blogs, setBlogs] = useState([]); // All blog data (fetched from backend)
-  const [viewCounts, setViewCounts] = useState([]); // View counts
-  const [loading, setLoading] = useState(true);
+  const [blogs, setBlogs] = useState([]);
+  const [viewMap, setViewMap] = useState({});
+  const [blogsLoading, setBlogsLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchBlogsAndViews = async () => {
+    const fetchBlogs = async () => {
       try {
-        const [blogsRes, viewsRes] = await Promise.all([
-          axios.get(`${process.env.REACT_APP_SERVER_URL}/api/blogs`),
-          axios.get(`${process.env.REACT_APP_SERVER_URL}/api/views`)
-        ]);
-
-        const blogsData = blogsRes.data;
-        const viewsData = viewsRes.data;
-
-        // Merge blogs with views
-        const mergedBlogs = blogsData.map((blog) => {
-          const view = viewsData.find((v) => v.blogId === blog.id);
-          return {
-            ...blog,
-            views: view ? view.views : 0
-          };
-        });
-
-        setBlogs(mergedBlogs);
+        const res = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/blogs`);
+        setBlogs(res.data);
       } catch (err) {
         console.error(err);
-        setError('Failed to fetch blogs or views');
+        setError('Failed to fetch blogs');
       } finally {
-        setLoading(false);
+        setBlogsLoading(false);
       }
     };
 
-    fetchBlogsAndViews();
+    fetchBlogs();
   }, []);
 
-  if (loading) return <div className="text-center py-10">Loading blogs...</div>;
-  if (error) return <div className="text-center py-10 text-red-500">Error: {error}</div>;
+  useEffect(() => {
+    const fetchViews = async () => {
+      try {
+        const res = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/views`);
+        const map = {};
+        for (const v of res.data) {
+          map[v.blogId] = v.views;
+        }
+        setViewMap(map);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    fetchViews();
+  }, []);
+
+  if (blogsLoading) {
+    return (
+      <div className="text-center py-10">Loading blogs...</div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="text-center py-10 text-red-500">Error: {error}</div>
+    );
+  }
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-8">
@@ -58,7 +68,7 @@ export default function Blog() {
             <div className="text-sm text-gray-500">
               <span>By {blog.author}</span> •{" "}
               <span>{new Date(blog.date).toLocaleDateString()}</span> •{" "}
-              <span>{blog.views} Views</span>
+              <span>{viewMap[blog.id] ?? 0} Views</span>
             </div>
           </Link>
         ))}

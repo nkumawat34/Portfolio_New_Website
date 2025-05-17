@@ -13,7 +13,7 @@ export default function BlogPage() {
       .then((res) => {
         setBlog(res.data);
         // Increment views
-        return axios.put(`${process.env.REACT_APP_SERVER_URL}/api/views/${id}`);
+        return axios.put(`${process.env.REACT_APP_SERVER_URL}/api/blogs/views/${id}`);
       })
       .then((response) => {
         console.log("View count incremented:", response.data);

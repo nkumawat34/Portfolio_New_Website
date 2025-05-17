@@ -6,7 +6,8 @@ const {
   getBlogById,
   updateBlog,
   deleteBlog,
-} = require("../controllers/blogController");
+  incrementView,
+} = require("../controllers/blogController").default
 
 // Create a new blog
 router.post("/", createBlog);
@@ -22,5 +23,9 @@ router.put("/:id", updateBlog);
 
 // Delete a blog by ID
 router.delete("/:id", deleteBlog);
+
+// Increment view count for a blog
+router.put("/views/:id", incrementView);
+
 
 module.exports = router;

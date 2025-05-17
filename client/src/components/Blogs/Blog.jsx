@@ -4,7 +4,7 @@ import axios from 'axios';
 
 export default function Blog() {
   const [blogs, setBlogs] = useState([]);
-  const [viewMap, setViewMap] = useState({});
+ // const [viewMap, setViewMap] = useState({});
   const [blogsLoading, setBlogsLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -24,6 +24,7 @@ export default function Blog() {
     fetchBlogs();
   }, []);
 
+  /*
   useEffect(() => {
     const fetchViews = async () => {
       try {
@@ -40,7 +41,7 @@ export default function Blog() {
 
     fetchViews();
   }, []);
-
+*/
   if (blogsLoading) {
     return (
       <div className="text-center py-10">Loading blogs...</div>
@@ -68,7 +69,7 @@ export default function Blog() {
             <div className="text-sm text-gray-500">
               <span>By {blog.author}</span> •{" "}
               <span>{new Date(blog.date).toLocaleDateString()}</span> •{" "}
-              <span>{viewMap[blog.id] ?? 0} Views</span>
+              <span>{blog.views} Views</span>
             </div>
           </Link>
         ))}

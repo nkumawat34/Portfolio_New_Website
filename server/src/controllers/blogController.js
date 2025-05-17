@@ -1,4 +1,6 @@
-const Blog = require("../models/blogModel");
+import Blog from "../models/blogModel.js";
+import NodeCache from 'node-cache'
+const viewCache = new NodeCache({ stdTTL: 3600 }); // cache for 1 hour
 
 // Create a new blog
 const createBlog = async (req, res) => {
@@ -10,7 +12,7 @@ const createBlog = async (req, res) => {
       summary,
       author,
       content,
-      date, 
+      date,
     });
 
     const savedBlog = await newBlog.save();
@@ -72,10 +74,38 @@ const deleteBlog = async (req, res) => {
   }
 };
 
-module.exports = {
+const incrementView = async (req, res) => {
+    const { id } = req.params;
+    console.log(id)
+    const ip = req.headers["x-forwarded-for"] || req.socket.remoteAddress;
+    const key = `${ip}-${id}`;
+  
+    // If already viewed recently, skip increment
+    if (viewCache.has(key)) {
+      return res.status(200).json({ message: "View already counted recently" });
+    }
+  
+    try {
+      const updatedView = await Blog.findOneAndUpdate(
+        { id },
+        { $inc: { views: 1 } },
+        { new: true, upsert: true }
+      );
+  
+      viewCache.set(key, true); // Mark this IP+blog as viewed
+      res.status(200).json(updatedView);
+    } catch (error) {
+      res.status(500).json({ message: "Error incrementing view", error });
+    }
+  };
+
+
+
+export default  {
   createBlog,
   getAllBlogs,
   getBlogById,
   updateBlog,
   deleteBlog,
+  incrementView,
 };

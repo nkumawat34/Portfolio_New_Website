@@ -9,6 +9,7 @@ export default function Contact() {
   const [email,setEmail]=useState("")
   const [message,setMessage]=useState("")
   const [loading,setLoading]=useState(false)
+  const [phone,setPhone]=useState("")
 
   const validateEmail = () => {
    
@@ -21,8 +22,9 @@ export default function Contact() {
 
   function onSubmit()
   {
+   // console.log(firstname,lastname,email,message,phone)
   
-   if(firstname=='' || lastname=='' || email=='' || message=='' )
+   if(firstname=='' || lastname=='' || email=='' || message=='' || phone=='' )
       {
         alert("Please fill all the fields")
       }
@@ -38,22 +40,27 @@ export default function Contact() {
       firstName: firstname,
       lastName:lastname,
       email:email,
-      message:message
+      message:message,
+      phone:phone
     })
     .then((response) => {
       //console.log(response.data)
-      setLoading(false)
+    
       alert("Submitted")
       
       setFirstName("")
       setLastname("")
       setMessage("")
       setEmail("")
+      setPhone("")
     })
     .catch((error)=>{
       alert(error.message)
     })
-        }  
+    .finally(() => {
+      setLoading(false);
+    })
+  }  
       }
     
     }  
@@ -80,7 +87,10 @@ export default function Contact() {
         <label htmlFor="email" className="font-medium">Email</label>
         <input id="email" type="email" value={email} placeholder="example@gmail.com" className="border-2 rounded-lg border-gray-500 p-2 outline-gray-500 mt-1" onChange={(e)=>setEmail(e.target.value)}/>
       </div>
-
+      <div className="flex flex-col w-full max-w-md mt-5">
+        <label htmlFor="phone" className="font-medium">Phone No</label>
+        <input id="phone" type="text" value={phone} placeholder="+91-1721123212" className="border-2 rounded-lg border-gray-500 p-2 outline-gray-500 mt-1" onChange={(e)=>setPhone(e.target.value)}/>
+      </div>
       <div className="flex flex-col w-full max-w-md mt-5">
         <label htmlFor="message" className="font-medium">Message</label>
         <textarea id="message" placeholder="Write your message..." value={message} className="border-2 rounded-lg border-gray-500 p-2 outline-gray-500 mt-1 h-32 resize-none" onChange={(e)=>setMessage(e.target.value)}/>
